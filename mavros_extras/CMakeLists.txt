@@ -74,6 +74,14 @@ add_library(mavros_extras
   src/plugins/vision_speed_estimate.cpp
   src/plugins/vibration.cpp
   src/plugins/cam_imu_sync.cpp
+
+  src/plugins/keyboard_command.cpp
+  src/plugins/odar_info.cpp
+  src/plugins/odar_pwm.cpp
+  src/plugins/odar_wrench.cpp
+  src/plugins/odar_channel_command.cpp
+  src/plugins/odar_desired_pose.cpp
+  src/plugins/odar_pose.cpp
 )
 target_link_libraries(mavros_extras
   ${mavros_LIBRARIES}

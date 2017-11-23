@@ -23,4 +23,29 @@
         <class name="cam_imu_sync" type="mavplugin::CamIMUSyncPlugin" base_class_type="mavplugin::MavRosPlugin">
 		<description>Publish camera trigger data for synchronisation of IMU and camera frames</description>
 	</class>
+
+	<class name="keyboard_command" type="mavplugin::KeyboardCommandPlugin" base_class_type="mavplugin::MavRosPlugin">
+	     <description>Accepts Keyboard Command </description>
+    </class>
+	<class name="odar_info" type="mavplugin::OdarInfoPlugin" base_class_type="mavplugin::MavRosPlugin">
+		<description> Odar Info </description>
+	</class>
+	<class name="odar_pwm" type="mavplugin::OdarPWMPlugin" base_class_type="mavplugin::MavRosPlugin">
+		<description> Odar PWM </description>
+	</class>
+	<class name="odar_wrench" type="mavplugin::OdarWrenchPlugin" base_class_type="mavplugin::MavRosPlugin">
+		<description> Odar Wrench </description>
+	</class>
+	<class name="odar_channel_command" type="mavplugin::OdarChannelCommandPlugin" base_class_type="mavplugin::MavRosPlugin">
+		<description> Odar Channel Command </description>
+	</class>
+	<class name="odar_desired_pose" type="mavplugin::OdarDesiredPosePlugin" base_class_type="mavplugin::MavRosPlugin">
+		<description> Odar Desired Pose </description>
+	</class>
+	<class name="odar_pose" type="mavplugin::OdarPosePlugin" base_class_type="mavplugin::MavRosPlugin">
+		<description> Odar Pose </description>
+	</class>
+
+
+
 </library>

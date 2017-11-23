@@ -33,6 +33,11 @@ add_message_files(
   Vibration.msg
   Waypoint.msg
   WaypointList.msg
+
+  OdarInfo.msg
+  OdarPWM.msg
+  OdarWrench.msg
+  OdarChannelCommand.msg
 )
 
 add_service_files(
