@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(mavros_msgs)
 
+set(CMAKE_BUILD_TYPE "Release")                                               
+set(CMAKE_CXX_FLAGS "-std=c++11 -Wall")                                             
+
+
 find_package(catkin REQUIRED COMPONENTS geometry_msgs message_generation std_msgs)
 
 include_directories(include)
