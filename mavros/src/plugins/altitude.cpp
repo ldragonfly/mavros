@@ -18,6 +18,7 @@
 #include <pluginlib/class_list_macros.h>
 
 #include <mavros_msgs/Altitude.h>
+#include <sensor_msgs/Range.h>
 
 namespace mavplugin {
 /**
@@ -38,6 +39,7 @@ public:
         uas = &uas_;
         nh.param<std::string>("frame_id", frame_id, "map");
         altitude_pub = nh.advertise<mavros_msgs::Altitude>("altitude", 10);
+        altitude_range_pub = nh.advertise<sensor_msgs::Range>("altitude/range", 10);
     }
 
     const message_map get_rx_handlers() {
@@ -52,6 +54,7 @@ private:
     std::string frame_id;
 
     ros::Publisher altitude_pub;
+    ros::Publisher altitude_range_pub;
 
     void handle_altitude(const mavlink_message_t *msg, uint8_t sysid, uint8_t compid) {
         mavlink_altitude_t altitude;
@@ -67,7 +70,12 @@ private:
         ros_msg->terrain = altitude.altitude_terrain;
         ros_msg->bottom_clearance = altitude.bottom_clearance;
 
+        auto range_msg = boost::make_shared<sensor_msgs::Range>();
+        range_msg->header = uas->synchronized_header(frame_id, altitude.time_usec);
+        range_msg->range = altitude.altitude_local;
+
         altitude_pub.publish(ros_msg);
+        altitude_range_pub.publish(range_msg);
     }
 
 };
